@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dinner & Movie</title>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+</head>
+
+<body>
+    <div>
+
+    	<!--HEADER-->
+        <div class="page-header text-ctr">
+            <h1>Chicago Dinner & Movie Adventure</h1>
+        </div>
+
+        <!--MAIN CONTENT-->
+        <div class="main-container">
+
+        	<!--ROW CONTAINING PHOTOS AND SELECTION FIELDS-->
+            <div class="row option-row-styles">
+                <div class="col-md-4 col-max-width">
+                    <div>
+                        <img src="https://chicagodowntowntheloop.place.hyatt.com/content/dam/PropertyWebsites/place/chizp/Media/All/Hyatt-Place-Chicago-Downtown-The-Loop-P014-Skyline-North-Lakeshore.masthead-feature-panel-medium.masthead-feature-panel-medium.jpg" class="stable-img width600px">
+                    </div>
+                    <div>
+                        <h3 class="text-ctr">Neighborhood</h3>
+                        <div class="text-ctr">
+							<select class="custom-select">
+							  <option selected>Select a location</option>
+							  <option value="1">Surprise Me!</option>
+							  <option value="2">Neighborhood 1</option>
+							  <option value="3">Neighborhood 2</option>
+							</select>
+						</div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-max-width pad-10px">
+                    <div>
+                        <img src="http://www.publicchicago.com/content/slides/pumproom_menu_food_004.jpg" class="stable-img">
+                    </div>
+                    <div>
+                        <h3 class="text-ctr">Dinner</h3>
+                        <div class="text-ctr">
+							<select class="custom-select">
+							  <option selected>Select cuisine</option>
+							  <option value="1">Surprise Me!</option>
+							  <option value="2">Cuisine 1</option>
+							  <option value="3">Cuisine 2</option>
+							</select>
+						</div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-max-width">
+                    <div>
+                        <img src="http://hifilmfestival.com/wp-content/uploads/2015/04/film-reel-background.jpg" class="stable-img">
+                    </div>
+                    <div>
+                        <h3 class="text-ctr">Movie</h3>
+                        <div class="text-ctr">
+							<select class="custom-select">
+							  <option selected>Select genre</option>
+							  <option value="1">Surprise Me!</option>
+							  <option value="2">Genre 1</option>
+							  <option value="3">Genre 2</option>
+							</select>
+						</div>
+                    </div>
+                </div>
+            </div>
+
+            <!--ROW CONTAINING SUBMIT BUTTON-->
+            <div class="row wide-margin-top">
+            	<div class="col-md-12 text-ctr">
+            		<button>Submit Choices</button>
+            	</div>
+            </div>
+
+			<!--DISPLAY RESULT HERE-->
+			<div class="row wide-margin-top">
+				<div class="col-md-12 text-ctr">
+					<div class="panel panel-primary">
+					    <div class="panel-heading bold-text">
+					        <h4>Your Dinner and Movie Adventure!</h4>
+					    </div>
+					    <div class="panel-body">
+					        <p>This panel will only display after the submit button is pressed. It will show the result returned by calling relevant APIs.</p>
+					    </div>
+					</div>
+				</div>
+			</div>
+
+        </div>
+    </div>
+</body>
+
+</html>

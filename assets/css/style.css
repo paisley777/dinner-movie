@@ -1,0 +1,41 @@
+.main-container {
+	width: 960px;
+	margin: 0 auto;
+}
+
+.text-ctr {
+	text-align: center;
+}
+
+.posn-ctr {
+	margin: 0 auto;
+}
+
+.wide-margin-top {
+	margin-top: 30px;
+}
+
+
+/* horizontal layout*/
+
+.col-max-width {
+	max-width: 325px;
+	overflow: hidden;
+}
+
+.stable-img {
+	max-height: 200px;
+}
+
+.option-row-styles {
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.pad-10px {
+	padding: 0 10px;
+}
+
+.width600px {
+	max-width: 600px;
+}
