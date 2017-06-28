@@ -31,10 +31,15 @@ $(document).ready(function() {
 	/*set initial state of page, showing buttons for each interest in array */
 
 	/*on click of submit button, call the API*/
-	$('#js-submit').on('click', function() {
-		var userLocation = $('#js-location').val();
-		var userCuisine = $('#js-cuisine').val();
-		var userMovie = $('#js-movie').val();
+	$('#js-submit').on('click', function() {	
+		event.preventDefault();
+		var userLocation = $('#js-location option:selected').text();
+		var userCuisine = $('#js-cuisine option:selected').val();
+		var userMovie = $('#js-movie option:selected').val();
+
+		console.log(userLocation);
+		console.log(userCuisine);
+		console.log(userMovie);
 
 		//construct the URL for the API call
 		var queryURL = app.baseURL + 
@@ -50,9 +55,11 @@ $(document).ready(function() {
         	method: 'GET'
       	}).done(function(response) {
       		console.log(response)
-      		})
+      	})
 
 	/****FUNCTIONS****/
 
+
+	});
 
 });
