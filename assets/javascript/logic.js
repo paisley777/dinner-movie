@@ -71,7 +71,7 @@ $(document).ready(function() {
             var state = '';
             console.log(zip);
             //make a request to the google geocode api
-            $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address=' + zip)
+            $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + zip)
                 .success(function(response) {
                     //find the city and state
                     var address_components = response.results[0].address_components;
@@ -113,6 +113,6 @@ $(document).ready(function() {
                 });
         }
     });
-    /*Zip Code form area start*/
+    /*Zip Code form area end*/
 
 });
