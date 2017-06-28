@@ -10,105 +10,124 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
-
-
-
+    <!-- JQuery for Zip Search -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.js"></script>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Favicon -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAABAIEAF5eXgCIv74AfAL8AGRjZAARExUAlsrJADsCdQD8/vwAcQLlAIgZ/AC8/vwAAAAAAAAAAAAAAAAAAAmZGUmZmQAACZRJSRmZAAAJlElJkZkAAAkaSUmRmQAACRFJSZGZAAAJG0lJkZkAAAkZSUWRmQAACYlJQZSZAAAJSUlClJkAAAlJSUmUmQAAAUnMEZQZAAABzMzMwxkAAAzMwcwcdgAACZzBzMwcAAAJnMzMzJkAAAmZmZGZmQDgAwAA4AMAAOADAADgAwAA4AMAAOADAADgAwAA4AMAAOADAADgAwAA4AMAAOADAADgAwAA4AMAAOADAADgAwAA" rel="icon" type="image/x-icon" />
 </head>
 
 <body>
-    <div>
-
-    	<!--HEADER-->
+    <div class="container">
+        <!--HEADER-->
         <div class="jumbotron">
             <div class="container text-center">
-            <h1>Dinner & Movie Adventure</h1>
+                <h1>Dinner & Movie Adventure</h1>
             </div>
         </div>
-
         <!--MAIN CONTENT-->
         <div class="main-container">
-
-        	<!--ROW CONTAINING PHOTOS AND SELECTION FIELDS-->
+            <!--ROW CONTAINING PHOTOS AND SELECTION FIELDS-->
             <div class="row option-row-styles">
                 <div class="col-md-4 col-max-width">
                     <div>
-                        <img src="https://chicagodowntowntheloop.place.hyatt.com/content/dam/PropertyWebsites/place/chizp/Media/All/Hyatt-Place-Chicago-Downtown-The-Loop-P014-Skyline-North-Lakeshore.masthead-feature-panel-medium.masthead-feature-panel-medium.jpg" class="stable-img width600px">
+                        <img src="https://chicagodowntowntheloop.place.hyatt.com/content/dam/PropertyWebsites/place/chizp/Media/All/Hyatt-Place-Chicago-Downtown-The-Loop-P014-Skyline-North-Lakeshore.masthead-feature-panel-medium.masthead-feature-panel-medium.jpg" class="stable-img img-thumbnail width600px">
                     </div>
                     <div>
                         <h3 class="text-ctr">Neighborhood</h3>
-                        <div class="text-ctr">
-							<select class="custom-select" id="js-location">
-							  <option selected>Select a location</option>
-							  <option value="1">Surprise Me!</option>
-							  <option value="2">Chicago</option>
-							  <option value="3">New York</option>
-                              <option value="4">Los Angeles</option>
-							</select>
-						</div>
+                        <div class="text-left well well-lg">
+                            <!-- <select class="custom-select" id="js-location">
+                                <option selected>Select a location</option>
+                                <option value="1">Surprise Me!</option>
+                                <option value="2">Chicago</option>
+                                <option value="3">New York</option>
+                                <option value="4">Los Angeles</option>
+                            </select> -->
+                            <form>
+                                <div class="form-group">
+                                    <label for="zip">Zip:</label>
+                                    <input id="zip" name="zip" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">City:</label>
+                                    <aside id="city_wrap">
+                                        <input id="city" name="city" />
+                                    </aside>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">State:</label>
+                                    <input id="state" name="state" />
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-
                 <div class="col-md-4 col-max-width pad-10px">
                     <div>
-                        <img src="http://www.publicchicago.com/content/slides/pumproom_menu_food_004.jpg" class="stable-img">
+                        <img src="http://www.publicchicago.com/content/slides/pumproom_menu_food_004.jpg" class="stable-img img-thumbnail width600px">
                     </div>
                     <div>
                         <h3 class="text-ctr">Dinner</h3>
                         <div class="text-ctr">
-							<select class="custom-select" id="js-cuisine">
-							  <option selected>Select cuisine</option>
-							  <option value="1">Surprise Me!</option>
-							  <option value="2">Cuisine 1</option>
-							  <option value="3">Cuisine 2</option>
-							</select>
-						</div>
+                            <select class="custom-select" id="js-cuisine">
+                                <option selected>Select cuisine</option>
+                                <option value="1">Surprise Me!</option>
+                                <option value="2">Cuisine 1</option>
+                                <option value="3">Cuisine 2</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-
                 <div class="col-md-4 col-max-width">
                     <div>
-                        <img src="http://hifilmfestival.com/wp-content/uploads/2015/04/film-reel-background.jpg" class="stable-img">
+                        <img src="http://hifilmfestival.com/wp-content/uploads/2015/04/film-reel-background.jpg" class="stable-img img-thumbnail width600px">
                     </div>
                     <div>
                         <h3 class="text-ctr">Movie</h3>
                         <div class="text-ctr">
-							<select class="custom-select" id="js-movie">
-							  <option selected>Select genre</option>
-							  <option value="1">Surprise Me!</option>
-							  <option value="2">Genre 1</option>
-							  <option value="3">Genre 2</option>
-							</select>
-						</div>
+                            <select class="custom-select" id="js-movie">
+                                <option selected>Select genre</option>
+                                <option value="1">Surprise Me!</option>
+                                <option value="2">Genre 1</option>
+                                <option value="3">Genre 2</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
-
             <!--ROW CONTAINING SUBMIT BUTTON-->
             <div class="row wide-margin-top">
-            	<div class="col-md-12 text-ctr">
-            		<button id="js-submit" name="singlebutton" class="btn btn-primary center-block">
+                <div class="col-md-12 text-ctr">
+                    <button id="js-submit" name="singlebutton" class="btn btn-primary center-block">
                         Submit Choices
                     </button>
                 </div>
             </div>
-
-			<!--DISPLAY RESULT HERE-->
-			<div class="row wide-margin-top">
-				<div class="col-md-12 text-ctr">
-					<div class="panel panel-primary">
-					    <div class="panel-heading bold-text">
-					        <h4>Your Dinner and Movie Adventure!</h4>
-					    </div>
-					    <div class="panel-body">
-					        <p>This panel will only display after the submit button is pressed. It will show the result returned by calling relevant APIs.</p>
-					    </div>
-					</div>
-				</div>
-			</div>
-
+            <!--DISPLAY RESULT HERE-->
+            <div class="row wide-margin-top">
+                <div class="col-md-12 text-ctr">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading bold-text">
+                            <h4>Your Dinner and Movie Adventure!</h4>
+                        </div>
+                        <div class="panel-body">
+                            <p>This panel will only display after the submit button is pressed. It will show the result returned by calling relevant APIs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Section -->
+        <div class="col-md-12 text-center jumbotron">
+            <footer class="footer">
+                <p>&copy; Northwestern Coding Bootcamp Team (April-2017 batch) </p>
+                <div class="icons">
+                    <a href="https://github.com/paisley777/dinner-movie" target="_blank"><i style="font-size:24px" class="fa">&#xf09b;</i></a>
+                </div>
+            </footer>
         </div>
     </div>
-
     <script src="assets/javascript/logic.js"></script>
 </body>
 
