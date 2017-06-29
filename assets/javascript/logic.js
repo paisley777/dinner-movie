@@ -6,12 +6,9 @@ $(document).ready(function() {
     var app = {
         baseURL: 'https://maps.googleapis.com/maps/api/place/textsearch/json?',
         apiKey: 'AIzaSyCF-u9yzrDchVCCHPBslU2CoC3o_JZnczU',
-
-        //hard coding latitute and longitude for the sake of testing
-        //ISSUE: the latitude and longitude values are being truncated when passed into the API URL 
-        //Stored numbers as strings to try to prevent this, but still isn't working
-        userLatitude: '41.8925085',
-        userLongitude: '-87.61616959999999',
+ 
+        userLatitude: '',
+        userLongitude: '',
     };
 
     /* Sample code to initialize firebase; we need to figure out how we are using firebase for 
@@ -50,6 +47,12 @@ $(document).ready(function() {
                     // find geo codes
                     var geometry = response.results[0].geometry.location;
                     console.log(geometry);
+                    //set the user latitude and longitude variables equal to values returned from this API call
+                    userLatitude = response.results[0].geometry.location.lat;
+                    userLongitude = response.results[0].geometry.location.lng;
+                    console.log(userLatitude);
+                    console.log(userLongitude);
+
                     $.each(address_components, function(index, component) {
                         var types = component.types;
                         $.each(types, function(index, type) {
@@ -113,7 +116,8 @@ $(document).ready(function() {
         //call the API
         $.ajax({
             url: queryURL,
-            method: 'GET'
+            method: 'GET',
+            dataType: 'jsonp'
         }).done(function(response) {
             console.log(response)
         })
