@@ -6,9 +6,13 @@ $(document).ready(function() {
     var app = {
         baseURL: 'https://maps.googleapis.com/maps/api/place/textsearch/json?',
         apiKey: 'AIzaSyCF-u9yzrDchVCCHPBslU2CoC3o_JZnczU',
+
+        //hard coding latitute and longitude for the sake of testing
+        //ISSUE: the latitude and longitude values are being truncated when passed into the API URL 
+        //Stored numbers as strings to try to prevent this, but still isn't working
+        userLatitude: '41.8925085',
+        userLongitude: '-87.61616959999999',
     };
-
-
 
     /* Sample code to initialize firebase; we need to figure out how we are using firebase for 
 	this project and copy out the new code 
@@ -29,38 +33,6 @@ $(document).ready(function() {
     /****EVENTS****/
 
     /*set initial state of page, showing buttons for each interest in array */
-
-    /*on click of submit button, call the API*/
-    $('#js-submit').on('click', function() {
-        event.preventDefault();
-        var userLocation = $('#js-location option:selected').text();
-        var userCuisine = $('#js-cuisine option:selected').val();
-        var userMovie = $('#js-movie option:selected').val();
-
-        console.log(userLocation);
-        console.log(userCuisine);
-        console.log(userMovie);
-
-        //construct the URL for the API call
-        var queryURL = app.baseURL +
-            'query=restaurants+in+' + userLocation +
-            '&limit=' + app.limit +
-            '&key=' + app.apiKey;
-
-        console.log(queryURL);
-
-        //call the API
-        $.ajax({
-            url: queryURL,
-            method: 'GET'
-        }).done(function(response) {
-            console.log(response)
-        })
-
-        /****FUNCTIONS****/
-
-
-    });
 
     /*Zip Code form area start*/
     //when the user clicks off of the zip field:
@@ -114,5 +86,37 @@ $(document).ready(function() {
         }
     });
     /*Zip Code form area end*/
+
+    /*on click of submit button, call the API*/
+    $('#js-submit').on('click', function() {
+        event.preventDefault();
+        //var userLocation = $('#js-location option:selected').text();
+        var userCuisine = $('#js-cuisine option:selected').text();
+        var userMovie = $('#js-movie option:selected').text();
+
+   		console.log(app.userLatitude, app.userLongitude);
+        console.log(userCuisine);
+        console.log(userMovie);
+
+        //construct the URL for the API call
+        var queryURL = app.baseURL +
+            'query=' + userCuisine +
+            '&location=' + app.userLatitude + ',' + app.userLongitude +
+        	'&radius=8000' +
+        	'&type=restaurant' +
+            '&key=' + app.apiKey; 
+
+        //ISSUE: when this URL logs in the console, the userLatitute and userLongitude are truncated
+        //That is causing the API call to fail
+        console.log(queryURL);
+
+        //call the API
+        $.ajax({
+            url: queryURL,
+            method: 'GET'
+        }).done(function(response) {
+            console.log(response)
+        })
+    });
 
 });
