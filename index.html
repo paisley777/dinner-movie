@@ -99,6 +99,14 @@
                     </div>
                 </div>
             </div>
+            <!-- display maps area -->
+            <div class="container">
+                <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+                <div class="row option-row-styles well well-lg">
+                    <div id="map" class="map col-md-12">
+                    </div>
+                </div>
+            </div>
             <!--ROW CONTAINING SUBMIT BUTTON-->
             <div class="row wide-margin-top">
                 <div class="col-md-12 text-ctr">
@@ -132,6 +140,9 @@
         </div>
     </div>
     <script src="assets/javascript/logic.js"></script>
+    <!-- google places api info -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqb3fpUnmQUut6ZZpNd0Sv_O_Zq2tOUuU&libraries=places&callback=initAutocomplete" async defer></script>
+    <script src="assets/javascript/maps.js"></script>
 </body>
 
 </html>
