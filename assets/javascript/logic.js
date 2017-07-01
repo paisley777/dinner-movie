@@ -3,8 +3,12 @@
 //variables to store user preferences
 var userLatitude = 41.8898727;
 var userLongitude = -87.6271137;
-var userCuisine = 'indian restaurant';
+var userCuisine;
 var userMovie;
+
+var restaurant;
+var restaurantLatitude;
+var restaurantLongitude;
 
 //variables for google maps
 var map;
@@ -78,13 +82,35 @@ $(document).ready(function() {
     });
     /*Zip Code form area end*/
 
+    //On click of the submit button
+    $('#js-submit').on('click', function() {
+        event.preventDefault();
+        userCuisine = $('#js-cuisine option:selected').text();
+        userMovie = $('#js-movie option:selected').text();
+        console.log(userCuisine);
+        console.log(userMovie);
+        getRestaurants();
+    });
 
+        
     /****FUNCTIONS****/
 
-    //focus the map based on user preferences
+    //set initial state of the map
     function focusMap() {
         var userLocation = new google.maps.LatLng(userLatitude,userLongitude);
         $('#map').empty();
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: userLocation,
+            zoom: 15
+        });
+
+        service = new google.maps.places.PlacesService(map);
+    }
+
+
+    //identify restaurants in the user's preferred location
+    function getRestaurants() {
+        var userLocation = new google.maps.LatLng(userLatitude,userLongitude);
         map = new google.maps.Map(document.getElementById('map'), {
             center: userLocation,
             zoom: 15
@@ -102,25 +128,38 @@ $(document).ready(function() {
 
     function callback(results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-            for (var i = 0; i < results.length; i++) {
-                var place = results[i];
-                if (i<3) console.log(place);
-                else
-                break;
-                createMarker(results[i]);
-            }
-          }
+            console.log(results.length);
+            console.log(results);
+            restaurant = results[Math.floor(Math.random() * results.length)];
+            console.log(restaurant);
+            restaurantLatitude = restaurant.geometry.location.lat();
+            restaurantLongitude = restaurant.geometry.location.lng();
+            console.log(restaurantLatitude);
+            console.log(restaurantLongitude);
+            restaurantMap();
         }
+    }
 
-    function createMarker(place) {
-        var placeLoc = place.geometry.location;
+    function restaurantMap() {
+        var restaurantLocation = new google.maps.LatLng(restaurantLatitude,restaurantLongitude);
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: restaurantLocation,
+            zoom: 15
+        });
+
+        service = new google.maps.places.PlacesService(map);
+        createMarker(restaurant);
+    }
+
+    function createMarker(restaurant) {
+        var placeLoc = restaurant.geometry.location;
         var marker = new google.maps.Marker({
             map: map,
-            position: place.geometry.location
+            position: restaurant.geometry.location
         });
 
         google.maps.event.addListener(marker, 'click', function() {
-            infowindow.setContent(place.name);
+            infowindow.setContent(restaurant.name);
             infowindow.open(map, this);
         });
     }
