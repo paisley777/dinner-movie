@@ -48,10 +48,10 @@ $(document).ready(function() {
                     var geometry = response.results[0].geometry.location;
                     console.log(geometry);
                     //set the user latitude and longitude variables equal to values returned from this API call
-                    userLatitude = response.results[0].geometry.location.lat;
-                    userLongitude = response.results[0].geometry.location.lng;
-                    console.log(userLatitude);
-                    console.log(userLongitude);
+                    app.userLatitude = response.results[0].geometry.location.lat;
+                    app.userLongitude = response.results[0].geometry.location.lng;
+                    console.log(app.userLatitude);
+                    console.log(app.userLongitude);
 
                     $.each(address_components, function(index, component) {
                         var types = component.types;
