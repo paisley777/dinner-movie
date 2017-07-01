@@ -1,18 +1,16 @@
 /****VARIABLES****/
 
+var userLatitude = 41.8898727;
+var userLongitude = -87.6271137;
+var map;
+var service;
+var infowindow;
+
 $(document).ready(function() {
 
-    //set up the variables
-    var app = {
-        baseURL: 'https://maps.googleapis.com/maps/api/place/textsearch/json?',
-        apiKey: 'AIzaSyCF-u9yzrDchVCCHPBslU2CoC3o_JZnczU',
- 
-        userLatitude: '',
-        userLongitude: '',
-    };
-
-
     /****EVENTS****/
+
+    focusMap();
 
     /*Zip Code form area start*/
     //when the user clicks off of the zip field:
@@ -31,10 +29,10 @@ $(document).ready(function() {
                     var geometry = response.results[0].geometry.location;
                     console.log(geometry);
                     //set the user latitude and longitude variables equal to values returned from this API call
-                    app.userLatitude = response.results[0].geometry.location.lat;
-                    app.userLongitude = response.results[0].geometry.location.lng;
-                    console.log(app.userLatitude);
-                    console.log(app.userLongitude);
+                    userLatitude = response.results[0].geometry.location.lat;
+                    userLongitude = response.results[0].geometry.location.lng;
+                    console.log(userLatitude);
+                    console.log(userLongitude);
 
                     $.each(address_components, function(index, component) {
                         var types = component.types;
@@ -68,10 +66,57 @@ $(document).ready(function() {
                         $('#city').val(city);
                     }
                     $('#state').val(state);
+                    focusMap();
                 });
         }
     });
     /*Zip Code form area end*/
+
+
+    /****FUNCTIONS****/
+
+    //focus the map on pre-defined or user-selected latitude and longitude
+    function focusMap() {
+        var userLocation = new google.maps.LatLng(userLatitude,userLongitude);
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: userLocation,
+            zoom: 15
+        });
+
+        var request = {
+            location: userLocation,
+            radius: '500',
+            query: 'restaurant'
+        };
+
+        service = new google.maps.places.PlacesService(map);
+        service.textSearch(request, callback);
+    }
+
+    function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                var place = results[i];
+                if (i<3) console.log(place);
+                else
+                break;
+                createMarker(results[i]);
+            }
+          }
+        }
+
+    function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+            map: map,
+            position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent(place.name);
+            infowindow.open(map, this);
+        });
+    }
 
 });
 
