@@ -1,5 +1,5 @@
 /*maps logic area start*/
-function initAutocomplete() {
+/*function initAutocomplete() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {
             lat: 41.8898727,
@@ -68,3 +68,4 @@ function initAutocomplete() {
         map.fitBounds(bounds);
     });
 }
+*/
