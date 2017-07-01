@@ -3,7 +3,7 @@ function initAutocomplete() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {
             lat: 41.8898727,
-            lng: -87.6271137
+            lng: -87.6271137,
         },
         zoom: 13,
         mapTypeId: 'roadmap'
