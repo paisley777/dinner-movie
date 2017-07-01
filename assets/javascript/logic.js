@@ -1,10 +1,16 @@
 /****VARIABLES****/
 
+//variables to store user preferences
 var userLatitude = 41.8898727;
 var userLongitude = -87.6271137;
+var userCuisine = 'indian restaurant';
+var userMovie;
+
+//variables for google maps
 var map;
 var service;
 var infowindow;
+
 
 $(document).ready(function() {
 
@@ -75,9 +81,10 @@ $(document).ready(function() {
 
     /****FUNCTIONS****/
 
-    //focus the map on pre-defined or user-selected latitude and longitude
+    //focus the map based on user preferences
     function focusMap() {
         var userLocation = new google.maps.LatLng(userLatitude,userLongitude);
+        $('#map').empty();
         map = new google.maps.Map(document.getElementById('map'), {
             center: userLocation,
             zoom: 15
@@ -86,7 +93,7 @@ $(document).ready(function() {
         var request = {
             location: userLocation,
             radius: '500',
-            query: 'restaurant'
+            query: userCuisine,
         };
 
         service = new google.maps.places.PlacesService(map);
