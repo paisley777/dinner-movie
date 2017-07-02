@@ -33,6 +33,8 @@ $(document).ready(function() {
 
     /****EVENTS****/
 
+    init();
+
     focusMap();
 
     /*Zip Code form area start*/
@@ -106,9 +108,15 @@ $(document).ready(function() {
             cuisineChoice: userCuisine
         });
         getRestaurants();
+        $('#download').hide();
+        $('#js-result-area').show();
     });
         
     /****FUNCTIONS****/
+
+    function init() {
+        $('#js-result-area').hide();
+    }
 
     //set initial state of the map
     function focusMap() {
