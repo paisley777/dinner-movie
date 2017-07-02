@@ -1,5 +1,18 @@
 /****VARIABLES****/
 
+// Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBRfkljGgrEpQeHXHPNwuvfVUDEGorXftg",
+        authDomain: "dinner-37e02.firebaseapp.com",
+        databaseURL: "https://dinner-37e02.firebaseio.com",
+        projectId: "dinner-37e02",
+        storageBucket: "",
+        messagingSenderId: "169741609516"
+    };
+    firebase.initializeApp(config);
+    // Create a variable to reference the database.
+    var database = firebase.database();
+
 //variables to store user preferences
 var userLatitude = 41.8898727;
 var userLongitude = -87.6271137;
@@ -89,9 +102,11 @@ $(document).ready(function() {
         userMovie = $('#js-movie option:selected').text();
         console.log(userCuisine);
         console.log(userMovie);
+        database.ref().set({
+            cuisineChoice: userCuisine
+        });
         getRestaurants();
     });
-
         
     /****FUNCTIONS****/
 
