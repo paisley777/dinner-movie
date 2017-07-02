@@ -119,6 +119,7 @@ $(document).ready(function() {
         var request = {
             location: userLocation,
             radius: '500',
+            type: 'restaurant',
             query: userCuisine,
         };
 
