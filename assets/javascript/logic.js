@@ -152,6 +152,7 @@ $(document).ready(function() {
             restaurantLongitude = restaurant.geometry.location.lng();
             console.log(restaurantLatitude);
             console.log(restaurantLongitude);
+            showResults();
             restaurantMap();
         }
     }
@@ -178,6 +179,15 @@ $(document).ready(function() {
             infowindow.setContent(restaurant.name);
             infowindow.open(map, this);
         });
+    }
+
+    function showResults() {
+        $('#js-result').html('');
+        $('#js-result').append('<h3 class="bold-text center">Your Dinner & Movie Adventure</h2>')
+            .append('<div>' + restaurant.name + '</div>')
+            .append('<div>' + restaurant.formatted_address + '</div>')
+            .append('<div>' + 'Rating: ' + restaurant.rating + '</div>')
+            .append('<div>' + 'Price Level: ' + restaurant.price_level + '</div>')
     }
 
 });
