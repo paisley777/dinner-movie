@@ -35,7 +35,7 @@ $(document).ready(function() {
 
     init();
 
-    focusMap();
+    //focusMap();
 
     /*Zip Code form area start*/
     //when the user clicks off of the zip field:
@@ -91,7 +91,7 @@ $(document).ready(function() {
                         $('#city').val(city);
                     }
                     $('#state').val(state);
-                    focusMap();
+                    //focusMap();
                 });
         }
     });
@@ -111,11 +111,43 @@ $(document).ready(function() {
         $('#download').hide();
         $('#js-result-area').show();
     });
+
+    //On click of the "Show Another Result" button
+    $('#js-result').on('click', '#js-another-result', function() {
+        event.preventDefault();
+        userCuisine = $('#js-cuisine option:selected').text();
+        userMovie = $('#js-movie option:selected').text();
+        console.log(userCuisine);
+        console.log(userMovie);
+        database.ref().set({
+            cuisineChoice: userCuisine
+        });
+        getRestaurants();
+        $('#download').hide();
+        $('#js-result-area').show();
+    });
+
+    //On click of the "Search Again" button
+    $('#js-result').on('click', '#js-new-search', function() {
+        reset();
+    });
         
     /****FUNCTIONS****/
 
     function init() {
         $('#js-result-area').hide();
+    }
+
+    function reset() {
+        $('#map').empty();
+        $('js-result').empty();
+        $('#js-result-area').hide();
+        $('#download').show();  
+        $('#zip').val('');
+        $('#city').val('');
+        $('#state').val('');
+        $('#js-cuisine').val('');
+        $('#js-movie').val('');
     }
 
     //set initial state of the map
@@ -196,6 +228,10 @@ $(document).ready(function() {
             .append('<div>' + restaurant.formatted_address + '</div>')
             .append('<div>' + 'Rating: ' + restaurant.rating + '</div>')
             .append('<div>' + 'Price Level: ' + restaurant.price_level + '</div>')
+            .append('<button id="js-another-result" name="singlebutton" class="btn btn-primary center-block">' 
+                    + 'Show Another Result' + '</button>')
+            .append('<button id="js-new-search" name="singlebutton" class="btn btn-primary center-block">' 
+                    + 'Start New Search' + '</button>')
     }
 
 });
