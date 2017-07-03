@@ -1,17 +1,17 @@
 /****VARIABLES****/
 
 // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyBRfkljGgrEpQeHXHPNwuvfVUDEGorXftg",
-        authDomain: "dinner-37e02.firebaseapp.com",
-        databaseURL: "https://dinner-37e02.firebaseio.com",
-        projectId: "dinner-37e02",
-        storageBucket: "",
-        messagingSenderId: "169741609516"
-    };
-    firebase.initializeApp(config);
-    // Create a variable to reference the database.
-    var database = firebase.database();
+var config = {
+    apiKey: "AIzaSyBRfkljGgrEpQeHXHPNwuvfVUDEGorXftg",
+    authDomain: "dinner-37e02.firebaseapp.com",
+    databaseURL: "https://dinner-37e02.firebaseio.com",
+    projectId: "dinner-37e02",
+    storageBucket: "",
+    messagingSenderId: "169741609516"
+};
+firebase.initializeApp(config);
+// Create a variable to reference the database.
+var database = firebase.database();
 
 //variables to store user preferences
 var userLatitude = 41.8898727;
@@ -129,7 +129,7 @@ $(document).ready(function() {
     $('#js-result').on('click', '#js-new-search', function() {
         reset();
     });
-        
+
     /****FUNCTIONS****/
 
     function init() {
@@ -141,7 +141,7 @@ $(document).ready(function() {
         $('#map').empty();
         $('js-result').empty();
         $('#js-result-area').hide();
-        $('#download').show();  
+        $('#download').show();
         $('#zip').val('');
         $('#city').val('');
         $('#state').val('');
@@ -151,7 +151,7 @@ $(document).ready(function() {
 
     //set initial state of the map
     function focusMap() {
-        var userLocation = new google.maps.LatLng(userLatitude,userLongitude);
+        var userLocation = new google.maps.LatLng(userLatitude, userLongitude);
         $('#map').empty();
         map = new google.maps.Map(document.getElementById('map'), {
             center: userLocation,
@@ -164,7 +164,7 @@ $(document).ready(function() {
 
     //identify restaurants in the user's preferred location
     function getRestaurants() {
-        var userLocation = new google.maps.LatLng(userLatitude,userLongitude);
+        var userLocation = new google.maps.LatLng(userLatitude, userLongitude);
         map = new google.maps.Map(document.getElementById('map'), {
             center: userLocation,
             zoom: 15
@@ -197,7 +197,7 @@ $(document).ready(function() {
     }
 
     function restaurantMap() {
-        var restaurantLocation = new google.maps.LatLng(restaurantLatitude,restaurantLongitude);
+        var restaurantLocation = new google.maps.LatLng(restaurantLatitude, restaurantLongitude);
         map = new google.maps.Map(document.getElementById('map'), {
             center: restaurantLocation,
             zoom: 15
@@ -227,34 +227,67 @@ $(document).ready(function() {
             .append('<div>' + restaurant.formatted_address + '</div>')
             .append('<div>' + 'Rating: ' + restaurant.rating + '</div>')
             .append('<div>' + 'Price Level: ' + restaurant.price_level + '</div>')
-            .append('<button id="js-another-result" name="singlebutton" class="btn btn-primary center-block">' 
-                    + 'Show Another Result' + '</button>')
-            .append('<button id="js-new-search" name="singlebutton" class="btn btn-primary center-block">' 
-                    + 'Start New Search' + '</button>')
+            .append('<button id="js-another-result" name="singlebutton" class="btn btn-primary center-block">' + 'Show Another Result' + '</button>')
+            .append('<button id="js-new-search" name="singlebutton" class="btn btn-primary center-block">' + 'Start New Search' + '</button>')
     }
 
 });
 
+// NewYorkTimes Api 
+var queryURLBase = "http://api.nytimes.com/svc/movies/v2/reviews/search.json?critics-pick=Y?order=by-date&offset=40?api-key=";
+var url = "https://api.nytimes.com/svc/movies/v2/reviews/all.json";
+url += '?' + $.param({
+    'api-key': "2a07bb238d094d32b7f873239d20c426",
+    'offset': 10,
+    'order': "by-publication-date"
+});
 
+$.ajax({
+    url: url,
+    method: 'GET',
+}).done(function(NYTData) {
+    console.log(NYTData);
+    console.log("lenght: " + NYTData.results.length);
+    var movieNames = [];
+    for (i = 0; i < NYTData.results.length; i++) {
+        movieNames.push(NYTData.results[i].display_title);
+    };
+    // RandomMovie from NYTData
+    var movieNameRandom = movieNames[Math.floor(Math.random() * movieNames.length)];
+    console.log("RandomMovie: " + movieNameRandom);
+    $("#dataDiplay").html("<h1>" + NYTData.results[1].display_title + "</h1>");
+
+    // OMDB Api call area
+    var queryURL = "http://www.omdbapi.com/?t=" + movieNameRandom + "&y=&plot=short&apikey=40e9cece";
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).done(function(movieData) {
+        console.log(movieData);
+        var omdbMovieData = movieData;
+    });
+}).fail(function(err) {
+    throw err;
+});
 
 /*REFERENCE CODE*/
 
-    /* Sample code to initialize firebase; we need to figure out how we are using firebase for 
-    this project and copy out the new code 
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyAfPrXNiyLnAF9X7NscB0kXXAwyz4evTB4",
-        authDomain: "newsbusters-14959.firebaseapp.com",
-        databaseURL: "https://newsbusters-14959.firebaseio.com",
-        projectId: "newsbusters-14959",
-        storageBucket: "newsbusters-14959.appspot.com",
-        messagingSenderId: "801909748364"
-    };
+/* Sample code to initialize firebase; we need to figure out how we are using firebase for 
+this project and copy out the new code 
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyAfPrXNiyLnAF9X7NscB0kXXAwyz4evTB4",
+    authDomain: "newsbusters-14959.firebaseapp.com",
+    databaseURL: "https://newsbusters-14959.firebaseio.com",
+    projectId: "newsbusters-14959",
+    storageBucket: "newsbusters-14959.appspot.com",
+    messagingSenderId: "801909748364"
+};
 
-    firebase.initializeApp(config);
-    */
+firebase.initializeApp(config);
+*/
 
-    /*THIS WAS TO CALL GOOGLE PLACES API - PROBABLY NO LONGER NEEDED*/
+/*THIS WAS TO CALL GOOGLE PLACES API - PROBABLY NO LONGER NEEDED*/
 /*    $('#js-submit').on('click', function() {
         event.preventDefault();
         //var userLocation = $('#js-location option:selected').text();
