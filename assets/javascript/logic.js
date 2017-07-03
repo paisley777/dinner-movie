@@ -35,8 +35,6 @@ $(document).ready(function() {
 
     init();
 
-    //focusMap();
-
     /*Zip Code form area start*/
     //when the user clicks off of the zip field:
     $('#zip').keyup(function() {
@@ -91,7 +89,7 @@ $(document).ready(function() {
                         $('#city').val(city);
                     }
                     $('#state').val(state);
-                    //focusMap();
+                    focusMap();
                 });
         }
     });
@@ -136,6 +134,7 @@ $(document).ready(function() {
 
     function init() {
         $('#js-result-area').hide();
+        focusMap();
     }
 
     function reset() {
