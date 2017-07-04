@@ -14,8 +14,8 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 //variables to store user preferences
-var userLatitude = 41.8898727;
-var userLongitude = -87.6271137;
+var userLatitude; //41.8898727;
+var userLongitude;       //-87.6271137;
 var userCuisine;
 var userMovie;
 
@@ -140,8 +140,7 @@ $(document).ready(function() {
     }
 
     function reset() {
-        $('#map').empty();
-        $('js-result').empty();
+        $('#js-restaurant').empty();
         $('#js-result-area').hide();
         $('#download').show();
         $('#zip').val('');
@@ -174,7 +173,7 @@ $(document).ready(function() {
 
         var request = {
             location: userLocation,
-            radius: '500',
+            radius: '5000',
             type: 'restaurant',
             query: userCuisine,
         };
@@ -223,19 +222,19 @@ $(document).ready(function() {
     }
 
     function showResults() {
-        $('#js-result').html('');
-        $('#js-result').append('<h3 class="bold-text center">Your Dinner & Movie Adventure</h2>')
-            .append('<div> RESTAURANT </div>')
+        $('#js-restaurant').html('');
+        $('#js-suggested-movie').html('');
+        $('#js-restaurant').append('<div> RESTAURANT </div>')
             .append('<div>' + restaurant.name + '</div>')
             .append('<div>' + restaurant.formatted_address + '</div>')
             .append('<div>' + 'Rating: ' + restaurant.rating + '</div>')
-            .append('<div>' + 'Price Level: ' + restaurant.price_level + '</div>')
-            .append('<div> MOVIE </div>')
+            .append('<div>' + 'Price Level: ' + restaurant.price_level + '</div>');
+        $('#js-suggested-movie').append('<div> MOVIE </div>')
             .append('<div>' + 'Title: ' + omdbMovieData.Title + '</div>')
             .append('<div>' + 'Plot: ' + omdbMovieData.Plot + '</div>')
-            .append('<div>' + 'Rated: ' + omdbMovieData.Rated + '</div>')
-            .append('<button id="js-another-result" name="singlebutton" class="btn btn-primary center-block">' + 'Show Another Result' + '</button>')
-            .append('<button id="js-new-search" name="singlebutton" class="btn btn-primary center-block">' + 'Start New Search' + '</button>')
+            .append('<div>' + 'Rated: ' + omdbMovieData.Rated + '</div>');
+            //.append('<button id="js-another-result" name="singlebutton" class="btn btn-primary center-block">' + 'Show Another Result' + '</button>')
+            //.append('<button id="js-new-search" name="singlebutton" class="btn btn-primary center-block">' + 'Start New Search' + '</button>')
     }
 
     // NewYorkTimes Api
@@ -271,6 +270,9 @@ $(document).ready(function() {
             }).done(function(movieData) {
                 console.log(movieData);
                 omdbMovieData = movieData;
+                console.log(omdbMovieData.Title);
+                console.log(omdbMovieData.Plot);
+                console.log(omdbMovieData.Rated);
             });
         }).fail(function(err) {
             throw err;
