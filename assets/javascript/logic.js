@@ -23,6 +23,7 @@ var restaurant;
 var restaurantLatitude;
 var restaurantLongitude;
 var omdbMovieData;
+var moviePoster;
 
 //variables for google maps
 var map;
@@ -235,6 +236,11 @@ $(document).ready(function() {
             .append('<div>' + 'Rated: ' + omdbMovieData.Rated + '</div>');
             //.append('<button id="js-another-result" name="singlebutton" class="btn btn-primary center-block">' + 'Show Another Result' + '</button>')
             //.append('<button id="js-new-search" name="singlebutton" class="btn btn-primary center-block">' + 'Start New Search' + '</button>')
+        var imageUrl = omdbMovieData.Poster;
+        console.log(imageUrl);
+        var moviePoster = $('<img>');
+        moviePoster.attr('src', imageUrl);
+        $('#js-movie-poster').append(moviePoster); 
     }
 
     // NewYorkTimes Api
@@ -276,6 +282,7 @@ $(document).ready(function() {
             });
         }).fail(function(err) {
             throw err;
+            selectMovie();
         });
     }
 
