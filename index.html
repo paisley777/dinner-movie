@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Dinner & Movie</title>
     <!-- Bootstrap Core CSS -->
-    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <!-- Custom Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -22,33 +22,33 @@
 </head>
 
 <body id="page-top">
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <!-- <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
+            Brand and toggle get grouped for better mobile display
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">Dinner & Movie Finder</a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
+            Collect the nav links, forms, and other content for toggling
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a class="page-scroll" href="#download">Try It - Free!</a>
                     </li>
-                    <!-- <li>
+                    <li>
                         <a class="page-scroll" href="#features">Mobile Version</a>
-                    </li> -->
+                    </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
+            /.navbar-collapse
         </div>
-        <!-- /.container-fluid -->
-    </nav>
+        /.container-fluid
+    </nav> -->
     <header>
         <div class="container">
             <div class="row">
@@ -81,7 +81,104 @@
     <!--MAIN CONTENT-->
     <section id="download" class="features">
         <div class="container-fluid">
-            <div class="row option-row-styles">
+            <!-- new stacked section START -->
+            <div id="accordion" role="tablist">
+                <div class="card">
+                    <div class="card-header" role="tab" id="headingOne">
+                        <h5 class="mb-0">
+        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Choose your location
+        </a>
+      </h5>
+                    </div>
+                    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-block">
+                            <div class="card card-inverse" style="background-color: #333; border-color: #333;">
+                                <div class="card-header">Header</div>
+                                <div class="card-block">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <input id="zip" type="text" class="form-control" placeholder="Enter Zip Code">
+                                        </div>
+                                        <div class="col-4">
+                                            <aside id="city_wrap">
+                                                <input id="city" type="text" class="form-control" placeholder="City">
+                                            </aside>
+                                        </div>
+                                        <div class="col-4">
+                                            <input id="state" type="text" class="form-control" placeholder="State">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">Footer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" role="tab" id="headingTwo">
+                        <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Choose your Dinner Type
+        </a>
+      </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-block">
+                            <div class="card card-inverse" style="background-color: #333; border-color: #333;">
+                                <div class="card-header">Header</div>
+                                <div class="card-block">
+                                    <div id="js-cuisine" class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Dropdown button
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="Select cuisine">
+                                            <a class="dropdown-item" href="#">Surprise Me!</a>
+                                            <a class="dropdown-item" href="#">American</a>
+                                            <a class="dropdown-item" href="#">Chinese</a>
+                                            <a class="dropdown-item" href="#">Indian</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">Footer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" role="tab" id="headingThree">
+                        <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Choose Your Movie
+        </a>
+      </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-block">
+                            <div class="card card-inverse" style="background-color: #333; border-color: #333;">
+                                <div class="card-header">Header</div>
+                                <div class="card-block">
+                                    <div id="js-movie" class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Dropdown button
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="Select genre">
+                                            <a class="dropdown-item" href="#">Surprise Me!</a>
+                                            <a class="dropdown-item" href="#">Comedy</a>
+                                            <a class="dropdown-item" href="#">Drama</a>
+                                            <a class="dropdown-item" href="#">Horror</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">Footer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- new stacked section END -->
+            <!-- old section commentated out for reference START-->
+            <!-- <div class="row option-row-styles">
                 <div class="col-md-4 col-max-width">
                     <img src="https://chicagodowntowntheloop.place.hyatt.com/content/dam/PropertyWebsites/place/chizp/Media/All/Hyatt-Place-Chicago-Downtown-The-Loop-P014-Skyline-North-Lakeshore.masthead-feature-panel-medium.masthead-feature-panel-medium.jpg" class="stable-img img-thumbnail">
                     <div>
@@ -136,7 +233,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            <!-- old section commentated out for reference END -->
             <!--ROW CONTAINING SUBMIT BUTTON-->
             <div class="row wide-margin-top">
                 <div class="col-md-12 text-ctr">
@@ -154,7 +252,7 @@
                 <div class="col-md-12" id="js-restaurant"></div>
             </div>
             <div class="row">
-                <div class="map col-md-12" id="map" ></div>
+                <div class="map col-md-12" id="map"></div>
             </div>
         </div>
         <div class="col-md-6" id="js-movie-result">
@@ -166,11 +264,7 @@
             </div>
         </div>
     </div>
-
-
-            
-
-<!--         </div>
+    <!--         </div>
 display maps area
 <div class="container">
     <div class="row option-row-styles well well-lg">
@@ -195,11 +289,11 @@ display maps area
     <script src="lib/jquery/jquery.min.js"></script>
     <!-- jQuery -->
     <!-- <script src="lib/jquery/jquery.min.js"></script> -->
-    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <!-- Theme JavaScript -->
     <script src="assets/javascript/theme.js"></script>
     <script src="assets/javascript/logic.js"></script>
