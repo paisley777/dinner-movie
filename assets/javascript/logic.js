@@ -132,7 +132,7 @@ $(document).ready(function() {
     });
 
     //On click of the "Search Again" button
-    $('#js-result').on('click', '#js-new-search', function() {
+    $('#js-search-summary').on('click', '#js-new-search', function() {
         reset();
     });
 
@@ -145,6 +145,8 @@ $(document).ready(function() {
 
     function reset() {
         $('#js-restaurant').empty();
+        $('#js-suggested-movie').empty();
+        $('#js-movie-poster').empty();
         $('#js-result-area').hide();
         $('#download').show();
         $('#zip').val('');
