@@ -29,6 +29,9 @@ var moviePoster;
 var map;
 var service;
 var infowindow;
+var zip;
+var city;
+var state;
 
 
 $(document).ready(function() {
@@ -41,9 +44,9 @@ $(document).ready(function() {
     //when the user clicks off of the zip field:
     $('#zip').keyup(function() {
         if ($(this).val().length == 5) {
-            var zip = $(this).val();
-            var city = '';
-            var state = '';
+            zip = $(this).val();
+            city = '';
+            state = '';
             console.log(zip);
             //make a request to the google geocode api
             $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + zip)
@@ -234,8 +237,11 @@ $(document).ready(function() {
             .append('<div>' + 'Title: ' + omdbMovieData.Title + '</div>')
             .append('<div>' + 'Plot: ' + omdbMovieData.Plot + '</div>')
             .append('<div>' + 'Rated: ' + omdbMovieData.Rated + '</div>');
+        $('#js-search-summary').html('Location: ' + city + ', ' + state + ' (' + zip + ')'
+            + ' > ' + 'Cuisine Choice: ' + userCuisine + ' > ' + 'Movie Choice: ' + userMovie);
+        $('#js-search-summary')
             //.append('<button id="js-another-result" name="singlebutton" class="btn btn-primary center-block">' + 'Show Another Result' + '</button>')
-            //.append('<button id="js-new-search" name="singlebutton" class="btn btn-primary center-block">' + 'Start New Search' + '</button>')
+            .append('<button id="js-new-search" name="singlebutton" class="btn btn-primary center-block">' + 'Start New Search' + '</button>');
         var imageUrl = omdbMovieData.Poster;
         console.log(imageUrl);
         var moviePoster = $('<img>');
@@ -249,7 +255,7 @@ $(document).ready(function() {
         var url = "https://api.nytimes.com/svc/movies/v2/reviews/all.json";
         url += '?' + $.param({
             'api-key': "2a07bb238d094d32b7f873239d20c426",
-            'offset': 10,
+            'offset': 40,
             'order': "by-publication-date"
         });
 
