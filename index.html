@@ -81,95 +81,87 @@
     <!--MAIN CONTENT-->
     <section id="download" class="features">
         <div class="container-fluid">
-            <div class="row option-row-styles">
-                <div class="col-md-4 col-max-width">
-                    <img src="https://chicagodowntowntheloop.place.hyatt.com/content/dam/PropertyWebsites/place/chizp/Media/All/Hyatt-Place-Chicago-Downtown-The-Loop-P014-Skyline-North-Lakeshore.masthead-feature-panel-medium.masthead-feature-panel-medium.jpg" class="stable-img img-thumbnail">
-                    <div>
-                        <h3 class="text-ctr">Neighborhood</h3>
-                        <div class="text-left well well-lg">
-                            <form>
+            <div id="js-option-area">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="panel panel-primary">
+                            <form class="text-ctr">
                                 <div class="form-group">
-                                    <label for="zip">Zip:</label>
+                                    <label class="control-label" for="zip">Zip:</label>
                                     <input id="zip" name="zip" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="city">City:</label>
-                                    <aside id="city_wrap">
-                                        <input id="city" name="city" />
-                                    </aside>
+                                    <label class="control-label" for="city">City:</label>
+                                    <input id="city" name="city" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="state">State:</label>
+                                    <label class="control-label" for="state">State:</label>
                                     <input id="state" name="state" />
                                 </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="cuisine">Cuisine Type</label>
+                                    <select class="custom-select" id="js-cuisine">
+                                        <option selected>Select cuisine</option>
+                                        <option value="1">Surprise Me!</option>
+                                        <option value="2">American</option>
+                                        <option value="3">Chinese</option>
+                                        <option value="4">Indian</option>
+                                    </select>
+                                    <div class="form-group">
+                                        <label class="control-label" for="cuisine">Movie</label>
+                                        <select class="custom-select" id="js-movie">
+                                            <option selected>Select genre</option>
+                                            <option value="1">Surprise Me!</option>
+                                            <option value="2">Comedy</option>
+                                            <option value="3">Drama</option>
+                                            <option value="3">Horror</option>
+                                        </select>
+                                    </div>
                             </form>
+                            <button id="js-submit" name="singlebutton" class="btn btn-primary center-block">
+                                Submit Choices
+                            </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-max-width pad-10px">
-                    <img src="http://www.publicchicago.com/content/slides/pumproom_menu_food_004.jpg" class="stable-img img-thumbnail">
-                    <div>
-                        <h3 class="text-ctr">Dinner</h3>
-                        <div class="text-ctr">
-                            <select class="custom-select" id="js-cuisine">
-                                <option selected>Select cuisine</option>
-                                <option value="1">Surprise Me!</option>
-                                <option value="2">American</option>
-                                <option value="3">Chinese</option>
-                                <option value="4">Indian</option>
-                            </select>
-                        </div>
+                    <div class="col-md-6">
+                        Insert Picture here
                     </div>
-                </div>
-                <div class="col-md-4 col-max-width">
-                    <img src="http://hifilmfestival.com/wp-content/uploads/2015/04/film-reel-background.jpg" class="stable-img img-thumbnail">
-                    <div>
-                        <h3 class="text-ctr">Movie</h3>
-                        <div class="text-ctr">
-                            <select class="custom-select" id="js-movie">
-                                <option selected>Select genre</option>
-                                <option value="1">Surprise Me!</option>
-                                <option value="2">Comedy</option>
-                                <option value="3">Drama</option>
-                                <option value="3">Horror</option>
-                            </select>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
-            <!--ROW CONTAINING SUBMIT BUTTON-->
-            <div class="row wide-margin-top">
-                <div class="col-md-12 text-ctr">
-                    <button id="js-submit" name="singlebutton" class="btn btn-primary center-block">
-                        Submit Choices
-                    </button>
-                </div>
-            </div>
-        </div>
     </section>
     <!--DIV FOR RESTAURANT AND MOVIE RECOMMENDATION-->
     <div class="row" id="js-result-area">
-        <div class="col-md-6" id="js-restaurant-result">
-            <div class="row">
-                <div class="col-md-12" id="js-restaurant"></div>
-            </div>
-            <div class="row">
-                <div class="map col-md-12" id="map" ></div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-ctr"><h2>Your Dinner and Movie Adventure!</h2></div>
+                <div class="text-ctr" id="js-search-summary"></div>
             </div>
         </div>
-        <div class="col-md-6" id="js-movie-result">
-            <div class="row">
-                <div class="col-md-12" id="js-suggested-movie"></div>
+        <div class="row">
+            <div class="col-md-6" id="js-restaurant-result">
+                <div class="row">
+                    <div class="col-md-12" id="js-restaurant"></div>
+                </div>
+                <div class="row">
+                    <div class="map col-md-12" id="map"></div>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-md-12" id="js-movie-poster"></div>
+            <div class="col-md-6" id="js-movie-result">
+                <div class="row">
+                    <div class="col-md-12" id="js-suggested-movie"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" id="js-movie-poster"></div>
+                </div>
             </div>
         </div>
     </div>
     <!-- Footer Section -->
     <div class="col-md-12 text-center jumbotron">
         <footer class="footer">
-            <p>&copy; Northwestern Coding Bootcamp Team (April-2017 batch) </p>
+            <p>&copy; Northwestern Coding Bootcamp Team</p>
             <div class="icons">
                 <a href="https://github.com/paisley777/dinner-movie" target="_blank"><i style="font-size:24px" class="fa">&#xf09b;</i></a>
             </div>
