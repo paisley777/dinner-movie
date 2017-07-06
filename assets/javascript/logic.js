@@ -216,8 +216,8 @@ $(document).ready(function() {
 
     function showResults() {
         $('#js-search-summary').empty();
-        $('#js-search-summary').append('<button id="js-new-search" name="singlebutton" class="btn btn-primary center-block button-margin">' 
-            + 'Start New Search' + '</button>');
+        $('#js-search-summary').append('<div><button id="js-new-search" name="singlebutton" class="btn btn-primary center-block button-margin">' 
+            + 'Start New Search' + '</button></div>');
         $('#js-search-summary').append('Location: ' + city + ', ' + state + ' (' + zip + ')'
             + ' > ' + 'Cuisine Choice: ' + userCuisine + ' > ' + 'Movie Choice: ' + userMovie);
         $('#js-restaurant').html('');
