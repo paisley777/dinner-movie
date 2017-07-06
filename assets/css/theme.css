@@ -25,16 +25,16 @@
      webkit-tap-highlight-color: #222
  }
  
- h1,
- h2,
- h3,
- h4,
- h5,
- h6 {
-     font-family: Catamaran, Helvetica, Arial, sans-serif;
-     font-weight: 600;
-     letter-spacing: 1px
- }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Catamaran, Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    letter-spacing: 1px
+} 
  
  a {
      -webkit-transition: all .35s;
