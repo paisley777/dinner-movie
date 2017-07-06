@@ -217,8 +217,7 @@ $(document).ready(function() {
     function showResults() {
         $('#js-search-summary').empty();
         $('#js-search-summary').append('<div><button id="js-new-search" name="singlebutton" class="btn btn-primary center-block">' + 'Start New Search' + '</button></div>');
-        $('#js-search-summary').append('Location: ' + city + ', ' + state + ' (' + zip + ')' + ' > ' + 'Cuisine Choice: ' + userCuisine + ' > ' + 'Movie Choice: ' + userMovie);
-        $('#js-restaurant').html('');
+        $('#js-search-summary').append('Location: ' + city + ', ' + state + ' (' + zip + ')' + ' > ' + 'Cuisine Choice: ' + userCuisine + ' > ' + 'Movie Choice: ' + userMovie);$('#js-restaurant').html('');
         $('#js-restaurant').append('<div><h3> RESTAURANT </h3></div>')
             .append('<div>' + restaurant.name + '</div>')
             .append('<div>' + restaurant.formatted_address + '</div>')
