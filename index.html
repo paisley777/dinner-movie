@@ -102,10 +102,15 @@
                                     <label class="control-label" for="cuisine">Cuisine Type</label>
                                     <select class="custom-select" id="js-cuisine">
                                         <option selected>Select cuisine</option>
-                                        <option value="1">Surprise Me!</option>
-                                        <option value="2">American</option>
-                                        <option value="3">Chinese</option>
+                                        <option value="1">American</option>
+                                        <option value="2">Chinese</option>
+                                        <option value="3">French</option>
                                         <option value="4">Indian</option>
+                                        <option value="5">Italian</option>
+                                        <option value="6">Japanese</option>
+                                        <option value="7">Mediterranean</option>
+                                        <option value="8">Mexican</option>
+                                        <option value="9">Thai</option>
                                     </select>
                                     <div class="form-group">
                                         <label class="control-label" for="cuisine">Movie</label>
@@ -130,30 +135,33 @@
                     </form>
                 </div>
             </div>
+        </div>
     </section>
     <!--DIV FOR RESTAURANT AND MOVIE RECOMMENDATION-->
-    <div class="row" id="js-result-area">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="text-ctr"><h2>Your Dinner and Movie Adventure!</h2></div>
-                <div class="text-ctr" id="js-search-summary"></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6" id="js-restaurant-result">
-                <div class="row">
-                    <div class="col-md-12" id="js-restaurant"></div>
-                </div>
-                <div class="row">
-                    <div class="map col-md-12" id="map"></div>
+    <div class="container-fluid">
+        <div class="row" id="js-result-area">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-ctr" id="js-search-summary"></div>
+                    <div class="text-ctr"><h2>Your Dinner and Movie Adventure!</h2></div>
                 </div>
             </div>
-            <div class="col-md-6" id="js-movie-result">
-                <div class="row">
-                    <div class="col-md-12" id="js-suggested-movie"></div>
+            <div class="row">
+                <div class="col-md-6" id="js-restaurant-result">
+                    <div class="row">
+                        <div class="col-md-12 pad-20px" id="js-restaurant"></div>
+                    </div>
+                    <div class="row">
+                        <div class="map col-md-12 pad-20px" id="map"></div>
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12" id="js-movie-poster"></div>
+                <div class="col-md-6" id="js-movie-result">
+                    <div class="row">
+                        <div class="col-md-12 pad-20px" id="js-suggested-movie"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 pad-20px" id="js-movie-poster"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -166,7 +174,6 @@
                 <a href="https://github.com/paisley777/dinner-movie" target="_blank"><i style="font-size:24px" class="fa">&#xf09b;</i></a>
             </div>
         </footer>
-    </div>
     </div>
     <!-- google places api info -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPzv9MPIomb1uANZvidnBVl5NjSdFbb5g&libraries=places"></script>
