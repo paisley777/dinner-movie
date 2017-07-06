@@ -105,8 +105,6 @@ $(document).ready(function() {
         event.preventDefault();
         userCuisine = $('#js-cuisine option:selected').text();
         userMovie = $('#js-movie option:selected').text();
-        console.log(userCuisine);
-        console.log(userMovie);
         database.ref().set({
             cuisineChoice: userCuisine
         });
@@ -131,7 +129,7 @@ $(document).ready(function() {
         $('#js-result-area').show();
     });
 
-    //On click of the "Search Again" button
+    //On click of the "Start New Search" button
     $('#js-search-summary').on('click', '#js-new-search', function() {
         reset();
     });
@@ -140,7 +138,7 @@ $(document).ready(function() {
 
     function init() {
         $('#js-result-area').hide();
-        focusMap();
+        //focusMap();
     }
 
     function reset() {
@@ -228,27 +226,17 @@ $(document).ready(function() {
     }
 
     function showResults() {
+        $('#js-search-summary').empty();
+        $('#js-search-summary').append('<button id="js-new-search" name="singlebutton" class="btn btn-primary center-block button-margin">' 
+            + 'Start New Search' + '</button>');
+        $('#js-search-summary').append('Location: ' + city + ', ' + state + ' (' + zip + ')'
+            + ' > ' + 'Cuisine Choice: ' + userCuisine + ' > ' + 'Movie Choice: ' + userMovie);
         $('#js-restaurant').html('');
-        $('#js-suggested-movie').html('');
-        $('#js-restaurant').append('<div> RESTAURANT </div>')
+        $('#js-restaurant').append('<h4> RESTAURANT </h4>')
             .append('<div>' + restaurant.name + '</div>')
             .append('<div>' + restaurant.formatted_address + '</div>')
             .append('<div>' + 'Rating: ' + restaurant.rating + '</div>')
             .append('<div>' + 'Price Level: ' + restaurant.price_level + '</div>');
-        $('#js-suggested-movie').append('<div> MOVIE </div>')
-            .append('<div>' + 'Title: ' + omdbMovieData.Title + '</div>')
-            .append('<div>' + 'Plot: ' + omdbMovieData.Plot + '</div>')
-            .append('<div>' + 'Rated: ' + omdbMovieData.Rated + '</div>');
-        $('#js-search-summary').html('Location: ' + city + ', ' + state + ' (' + zip + ')'
-            + ' > ' + 'Cuisine Choice: ' + userCuisine + ' > ' + 'Movie Choice: ' + userMovie);
-        $('#js-search-summary')
-            //.append('<button id="js-another-result" name="singlebutton" class="btn btn-primary center-block">' + 'Show Another Result' + '</button>')
-            .append('<button id="js-new-search" name="singlebutton" class="btn btn-primary center-block">' + 'Start New Search' + '</button>');
-        var imageUrl = omdbMovieData.Poster;
-        console.log(imageUrl);
-        var moviePoster = $('<img>');
-        moviePoster.attr('src', imageUrl);
-        $('#js-movie-poster').append(moviePoster); 
     }
 
     // NewYorkTimes Api
@@ -284,9 +272,20 @@ $(document).ready(function() {
             }).done(function(movieData) {
                 console.log(movieData);
                 omdbMovieData = movieData;
-                console.log(omdbMovieData.Title);
-                console.log(omdbMovieData.Plot);
-                console.log(omdbMovieData.Rated);
+                console.log('Title: ' + omdbMovieData.Title);
+                console.log('Plot: ' + omdbMovieData.Plot);
+                console.log('Rated: ' + omdbMovieData.Rated);
+                $('#js-suggested-movie').html('');
+                $('#js-movie-poster').html('');
+                $('#js-suggested-movie').append('<h4> MOVIE </h4>')
+                    .append('<div>' + 'Title: ' + omdbMovieData.Title + '</div>')
+                    .append('<div>' + 'Plot: ' + omdbMovieData.Plot + '</div>')
+                    .append('<div>' + 'Rated: ' + omdbMovieData.Rated + '</div>');
+                var imageUrl = omdbMovieData.Poster;
+                console.log(imageUrl);
+                var moviePoster = $('<img class="posn-ctr">');
+                moviePoster.attr('src', imageUrl);
+                $('#js-movie-poster').append(moviePoster); 
             });
         }).fail(function(err) {
             throw err;

@@ -8,30 +8,17 @@
  }
  
  .posn-ctr {
+     display: block;
      margin: 0 auto;
  }
  
- .wide-margin-top {
-     margin-top: 30px;
+ .pad-20px {
+     padding: 20px;
  }
- /* horizontal layout*/
- 
- .col-max-width {
-     max-width: 325px;
-     overflow: hidden;
- }
- 
- .stable-img {
-     max-height: 200px;
- }
- 
- .option-row-styles {
-     overflow: hidden;
+
+ .button-margin {
+     margin-top: 20px;
      margin-bottom: 20px;
- }
- 
- .pad-10px {
-     padding: 0 10px;
  }
  
  .width600px {
@@ -54,6 +41,7 @@
      /*border: 6px solid #dedede;*/
      margin: 0 auto;
  }
+
  /* Optional: Makes the sample page fill the window. */
  /* html,
 body {
