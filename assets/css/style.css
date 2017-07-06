@@ -132,3 +132,7 @@ body {
 #js-result-area {
     display: inline;
 }
+
+.img-responsive {
+     width:100%;
+}
