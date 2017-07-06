@@ -47,7 +47,6 @@ $(document).ready(function() {
             zip = $(this).val();
             city = '';
             state = '';
-            console.log(zip);
             //make a request to the google geocode api
             $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + zip)
                 .success(function(response) {
@@ -55,12 +54,9 @@ $(document).ready(function() {
                     var address_components = response.results[0].address_components;
                     // find geo codes
                     var geometry = response.results[0].geometry.location;
-                    console.log(geometry);
                     //set the user latitude and longitude variables equal to values returned from this API call
                     userLatitude = response.results[0].geometry.location.lat;
                     userLongitude = response.results[0].geometry.location.lng;
-                    console.log(userLatitude);
-                    console.log(userLongitude);
 
                     $.each(address_components, function(index, component) {
                         var types = component.types;
@@ -119,8 +115,6 @@ $(document).ready(function() {
         event.preventDefault();
         userCuisine = $('#js-cuisine option:selected').text();
         userMovie = $('#js-movie option:selected').text();
-        console.log(userCuisine);
-        console.log(userMovie);
         database.ref().set({
             cuisineChoice: userCuisine
         });
@@ -188,14 +182,9 @@ $(document).ready(function() {
 
     function callback(results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-            console.log(results.length);
-            console.log(results);
             restaurant = results[Math.floor(Math.random() * results.length)];
-            console.log(restaurant);
             restaurantLatitude = restaurant.geometry.location.lat();
             restaurantLongitude = restaurant.geometry.location.lng();
-            console.log(restaurantLatitude);
-            console.log(restaurantLongitude);
             showResults();
             restaurantMap();
         }
@@ -253,16 +242,12 @@ $(document).ready(function() {
             url: url,
             method: 'GET',
         }).done(function(NYTData) {
-            console.log(NYTData);
-            console.log("length: " + NYTData.results.length);
             var movieNames = [];
             for (i = 0; i < NYTData.results.length; i++) {
                 movieNames.push(NYTData.results[i].display_title);
             };
             // RandomMovie from NYTData
             var movieNameRandom = movieNames[Math.floor(Math.random() * movieNames.length)];
-            console.log("RandomMovie: " + movieNameRandom);
-            //$("#dataDiplay").html("<h1>" + NYTData.results[1].display_title + "</h1>");
 
             // OMDB Api call area
             var queryURL = "https://www.omdbapi.com/?t=" + movieNameRandom + "&y=&plot=short&apikey=40e9cece";
@@ -270,11 +255,7 @@ $(document).ready(function() {
                 url: queryURL,
                 method: "GET"
             }).done(function(movieData) {
-                console.log(movieData);
                 omdbMovieData = movieData;
-                console.log('Title: ' + omdbMovieData.Title);
-                console.log('Plot: ' + omdbMovieData.Plot);
-                console.log('Rated: ' + omdbMovieData.Rated);
                 $('#js-suggested-movie').html('');
                 $('#js-movie-poster').html('');
                 $('#js-suggested-movie').append('<h4> MOVIE </h4>')
@@ -282,7 +263,6 @@ $(document).ready(function() {
                     .append('<div>' + 'Plot: ' + omdbMovieData.Plot + '</div>')
                     .append('<div>' + 'Rated: ' + omdbMovieData.Rated + '</div>');
                 var imageUrl = omdbMovieData.Poster;
-                console.log(imageUrl);
                 var moviePoster = $('<img class="posn-ctr">');
                 moviePoster.attr('src', imageUrl);
                 $('#js-movie-poster').append(moviePoster); 
