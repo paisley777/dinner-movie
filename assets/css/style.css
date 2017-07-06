@@ -20,8 +20,11 @@
      padding: 20px;
  }
 
- .button-margin {
-     margin-top: 20px;
+ .margin-top10 {
+     margin-top: 10px;
+ }
+
+ .margin-bottom20 {
      margin-bottom: 20px;
  }
  
