@@ -121,3 +121,7 @@ body {
  #target {
      width: 345px;
  }
+
+#js-result-area {
+    display: inline;
+}
