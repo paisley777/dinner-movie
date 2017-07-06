@@ -15,7 +15,7 @@ var database = firebase.database();
 
 //variables to store user preferences
 var userLatitude; //41.8898727;
-var userLongitude;       //-87.6271137;
+var userLongitude; //-87.6271137;
 var userCuisine;
 var userMovie;
 
@@ -216,21 +216,17 @@ $(document).ready(function() {
 
     function showResults() {
         $('#js-search-summary').empty();
-        $('#js-search-summary').append('<div><button id="js-new-search" name="singlebutton" class="btn btn-primary center-block button-margin">' 
-            + 'Start New Search' + '</button></div>');
-        $('#js-search-summary').append('Location: ' + city + ', ' + state + ' (' + zip + ')'
-            + ' > ' + 'Cuisine Choice: ' + userCuisine + ' > ' + 'Movie Choice: ' + userMovie);
-        $('#js-restaurant').html('');
-        $('#js-restaurant').append('<h4> RESTAURANT </h4>')
+        $('#js-search-summary').append('<div><button id="js-new-search" name="singlebutton" class="btn btn-primary center-block">' + 'Start New Search' + '</button></div>');
+        $('#js-search-summary').append('Location: ' + city + ', ' + state + ' (' + zip + ')' + ' > ' + 'Cuisine Choice: ' + userCuisine + ' > ' + 'Movie Choice: ' + userMovie);$('#js-restaurant').html('');
+        $('#js-restaurant').append('<div><h3> RESTAURANT </h3></div>')
             .append('<div>' + restaurant.name + '</div>')
             .append('<div>' + restaurant.formatted_address + '</div>')
-            .append('<div>' + 'Rating: ' + restaurant.rating + '</div>')
-            .append('<div>' + 'Price Level: ' + restaurant.price_level + '</div>');
+            .append('<div><h4 class="float-left">' + 'Rating: </h4><p>' + restaurant.rating + '</p></div>')
+            .append('<div><h4 class="float-left">' + 'Price Level: </h4>' + restaurant.price_level + '</div>');
     }
 
     // NewYorkTimes Api
     function selectMovie() {
-        var queryURLBase = "http://api.nytimes.com/svc/movies/v2/reviews/search.json?critics-pick=Y?order=by-date&offset=40?api-key=";
         var url = "https://api.nytimes.com/svc/movies/v2/reviews/all.json";
         url += '?' + $.param({
             'api-key': "2a07bb238d094d32b7f873239d20c426",
@@ -258,14 +254,14 @@ $(document).ready(function() {
                 omdbMovieData = movieData;
                 $('#js-suggested-movie').html('');
                 $('#js-movie-poster').html('');
-                $('#js-suggested-movie').append('<h4> MOVIE </h4>')
-                    .append('<div>' + 'Title: ' + omdbMovieData.Title + '</div>')
-                    .append('<div>' + 'Plot: ' + omdbMovieData.Plot + '</div>')
-                    .append('<div>' + 'Rated: ' + omdbMovieData.Rated + '</div>');
+                $('#js-suggested-movie').append('<div><h3> MOVIE </h3></div>')
+                    .append('<div><h4 class="float-left">' + 'Title: </h4>' + omdbMovieData.Title + '</div>')
+                    .append('<div><h4 class="float-left">' + 'Plot: </h4><p>' + omdbMovieData.Plot + '</p></div>')
+                    .append('<div><h4 class="float-left">' + 'Rated: </h4>' + omdbMovieData.Rated + '</div>');
                 var imageUrl = omdbMovieData.Poster;
                 var moviePoster = $('<img class="posn-ctr">');
                 moviePoster.attr('src', imageUrl);
-                $('#js-movie-poster').append(moviePoster); 
+                $('#js-movie-poster').append(moviePoster);
             });
         }).fail(function(err) {
             throw err;
@@ -274,5 +270,3 @@ $(document).ready(function() {
     }
 
 });
-
-
