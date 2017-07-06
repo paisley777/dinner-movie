@@ -85,7 +85,7 @@
                         <div class="panel panel-primary">
                             <div class="card">
                                 <div class="card-header">
-                                    Zip Code
+                                    Specify Location
                                 </div>
                                 <div class="card-block">
                                     <form class="text-ctr">
@@ -104,18 +104,22 @@
                                     </form>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel panel-primary">
                             <div class="card">
                                 <div class="card-header">
-                                    Cuisine Type
+                                    Enter Preferences
                                 </div>
                                 <div class="card-block">
-                                    <div class="form-group">
+                                    <div class="form-group text-ctr">
                                         <label class="control-label" for="cuisine">Cuisine Type</label>
                                         <select class="custom-select" id="js-cuisine">
                                             <option selected>Select cuisine</option>
-                                            <option value="1">Surprise Me!</option>
-                                            <option value="2">American</option>
-                                            <option value="3">Chinese</option>
+                                            <option value="1">American</option>
+                                            <option value="2">Chinese</option>
+                                            <option value="3">French</option>
                                             <option value="4">Indian</option>
                                             <option value="5">Italian</option>
                                             <option value="6">Japanese</option>
@@ -124,14 +128,7 @@
                                             <option value="9">Thai</option>
                                         </select>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header">
-                                    Select genre
-                                </div>
-                                <div class="card-block">
-                                    <div class="form-group">
+                                    <div class="form-group text-ctr">
                                         <label class="control-label" for="cuisine">Movie</label>
                                         <select class="custom-select" id="js-movie">
                                             <option selected>Select genre</option>
@@ -140,9 +137,31 @@
                                             <option value="3">Drama</option>
                                             <option value="4">Horror</option>
                                         </select>
+                                        <button id="js-submit" name="singlebutton" class="btn btn-primary center-block text-ctr margin-top10">
+                                            Submit Choices
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+<!--                             <div class="card">
+    <div class="card-header">
+        Select genre
+    </div>
+    <div class="card-block">
+        <div class="form-group">
+            <label class="control-label" for="cuisine">Movie</label>
+            <select class="custom-select" id="js-movie">
+                <option selected>Select genre</option>
+                <option value="1">Surprise Me!</option>
+                <option value="2">Comedy</option>
+                <option value="3">Drama</option>
+                <option value="4">Horror</option>
+            </select>
+        </div>
+    </div>
+</div> -->
                             <!-- old selection area -->
                             <!-- <form class="text-ctr">
                                 <div class="form-group">
@@ -183,18 +202,13 @@
                                     </div>
                             </form> -->
                             <!-- new selection area -->
-                            <button id="js-submit" name="singlebutton" class="btn btn-primary center-block">
-                                Submit Choices
-                            </button>
+<!--                             <button id="js-submit" name="singlebutton" class="btn btn-primary center-block">
+    Submit Choices
+</button> -->
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    Insert Picture here
-                </div>
-                </form>
             </div>
-        </div>
         </div>
     </section>
     <!--DIV FOR RESTAURANT AND MOVIE RECOMMENDATION-->
