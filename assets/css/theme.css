@@ -423,11 +423,17 @@ h6 {
     box-shadow: -5px 10px 10px #888888;
  }
 
- section.download{
-    background:blue;
- }
+ .bg-inverse {
+    background-color: #512d86!important;
+    border-bottom: yellow;
+    border-bottom-width: 3px;
+    border-bottom-style: inset;}
 
- .js-submit{
-    margin-top:15%;
-    margin-left:20%;
- }
+section#download.features{
+    background-image: url("https://s-media-cache-ak0.pinimg.com/736x/c2/ac/e4/c2ace487108cf1f2c9f2aefb8546153d--background-geometric-in-italian.jpg");
+    border-top-color: yellow;
+    border-top-width: 3px;
+    border-bottom-style: inset;}
+}
+    
+
