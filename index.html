@@ -96,8 +96,10 @@
                                             <input id="zip" name="zip" />
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label" for="city">City:</label>
-                                            <input id="city" name="city" />
+                                            <aside id="city_wrap">
+                                                <label class="control-label" for="city">City:</label>
+                                                <input id="city" name="city" />
+                                            </aside>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label" for="state">State:</label>
@@ -133,11 +135,9 @@
                                     <div class="form-group text-ctr">
                                         <label class="control-label" for="cuisine">Movie</label>
                                         <select class="custom-select" id="js-movie">
-                                            <option selected>Select genre</option>
-                                            <option value="1">Surprise Me!</option>
-                                            <option value="2">Comedy</option>
-                                            <option value="3">Drama</option>
-                                            <option value="4">Horror</option>
+                                            <option selected>Critically Acclaimed</option>
+                                            <option value="Y">Yes</option>
+                                            <option value="N">No</option>
                                         </select>
                                     </div>
                                 </div>
@@ -146,75 +146,15 @@
                     </div>
                     <div class="col-md-3">
                         <div class="row">
-                        <button id="js-submit" name="singlebutton" class="btn btn-primary center-block text-ctr margin-top10">
-                                            Submit Choices
-                                        </button>
-                    </div>
-                    </div>
-<!--                             <div class="card">
-    <div class="card-header">
-        Select genre
-    </div>
-    <div class="card-block">
-        <div class="form-group">
-            <label class="control-label" for="cuisine">Movie</label>
-            <select class="custom-select" id="js-movie">
-                <option selected>Select genre</option>
-                <option value="1">Surprise Me!</option>
-                <option value="2">Comedy</option>
-                <option value="3">Drama</option>
-                <option value="4">Horror</option>
-            </select>
-        </div>
-    </div>
-</div> -->
-                            <!-- old selection area -->
-                            <!-- <form class="text-ctr">
-                                <div class="form-group">
-                                    <label class="control-label" for="zip">Zip:</label>
-                                    <input id="zip" name="zip" />
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="city">City:</label>
-                                    <input id="city" name="city" />
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="state">State:</label>
-                                    <input id="state" name="state" />
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="cuisine">Cuisine Type</label>
-                                    <select class="custom-select" id="js-cuisine">
-                                        <option selected>Select cuisine</option>
-                                        <option value="1">American</option>
-                                        <option value="2">Chinese</option>
-                                        <option value="3">French</option>
-                                        <option value="4">Indian</option>
-                                        <option value="5">Italian</option>
-                                        <option value="6">Japanese</option>
-                                        <option value="7">Mediterranean</option>
-                                        <option value="8">Mexican</option>
-                                        <option value="9">Thai</option>
-                                    </select>
-                                    <div class="form-group">
-                                        <label class="control-label" for="cuisine">Movie</label>
-                                        <select class="custom-select" id="js-movie">
-                                            <option selected>Select genre</option>
-                                            <option value="1">Surprise Me!</option>
-                                            <option value="2">Comedy</option>
-                                            <option value="3">Drama</option>
-                                            <option value="3">Horror</option>
-                                        </select>
-                                    </div>
-                            </form> -->
-                            <!-- new selection area -->
-<!--                             <button id="js-submit" name="singlebutton" class="btn btn-primary center-block">
-    Submit Choices
-</button> -->
+                            <button id="js-submit" name="singlebutton" class="btn btn-primary center-block text-ctr margin-top10">
+                                Submit Choices
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        </div>
         </div>
     </section>
     <!--DIV FOR RESTAURANT AND MOVIE RECOMMENDATION-->
