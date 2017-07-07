@@ -220,8 +220,8 @@ $(document).ready(function() {
         $('#js-restaurant')
             .append('<div class="text-bold">' + 'Restaurant: ' + restaurant.name + '</div>')
             .append('<div>' + restaurant.formatted_address + '</div>')
-            .append('<div>' + 'Rating: ' + restaurant.rating + '</div>')
-            .append('<div>' + 'Price Level: ' + restaurant.price_level + '</div>');
+            .append('<div>' + 'Rating: ' + restaurant.rating + ' out of 5 stars' + '</div>')
+            .append('<div>' + 'Price Level: ' + restaurant.price_level + ' (ranging from 0=free to 4=very expensive)' + '</div>');
     }
 
     // NewYorkTimes Api
