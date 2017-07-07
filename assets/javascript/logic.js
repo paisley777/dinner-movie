@@ -100,7 +100,6 @@ $(document).ready(function() {
     $('#js-submit').on('click', function() {
         event.preventDefault();
         userCuisine = $('#js-cuisine option:selected').text();
-        userMovie = $('#js-movie option:selected').text();
         database.ref().set({
             cuisineChoice: userCuisine
         });
@@ -216,7 +215,8 @@ $(document).ready(function() {
     function showResults() {
         $('#js-search-summary').empty();
         $('#js-search-summary').append('<div><button id="js-new-search" name="singlebutton" class="btn btn-primary center-block margin-top10 margin-bottom20">' + 'Start New Search' + '</button></div>');
-        $('#js-search-summary').append('Location: ' + city + ', ' + state + ' (' + zip + ')' + ' > ' + 'Cuisine Choice: ' + userCuisine + ' > ' + 'Movie Choice: ' + userMovie);$('#js-restaurant').html('');
+        $('#js-search-summary').append('Location: ' + city + ', ' + state + ' (' + zip + ')' + ' > ' + 'Cuisine Choice: ' + userCuisine + ' > ' + 'Critically Acclaimed Movie: ' + userMovie);
+        $('#js-restaurant').html('');
         $('#js-restaurant')
             .append('<div class="text-bold">' + 'Restaurant: ' + restaurant.name + '</div>')
             .append('<div>' + restaurant.formatted_address + '</div>')
@@ -226,12 +226,15 @@ $(document).ready(function() {
 
     // NewYorkTimes Api
     function selectMovie() {
-        var url = "https://api.nytimes.com/svc/movies/v2/reviews/all.json";
-        url += '?' + $.param({
-            'api-key': "2a07bb238d094d32b7f873239d20c426",
-            'offset': 40,
-            'order': "by-publication-date"
-        });
+        userMovie = $('#js-movie option:selected').text();
+        var url = "https://api.nytimes.com/svc/movies/v2/reviews/search.json";
+            url += '?' + $.param({
+                'api-key': "2a07bb238d094d32b7f873239d20c426",
+                'critics-pick': userMovie,
+                'publication-date': "2017-05-01;2017-07-01",
+                'offset': 20
+            });
+
 
         $.ajax({
             url: url,
