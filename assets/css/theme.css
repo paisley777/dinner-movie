@@ -78,8 +78,8 @@ h6 {
      min-height: auto;
      overflow-y: hidden;
      background: url(../img/bg-pattern.png), #7b4397;
-     background: url(../img/bg-pattern.png), -webkit-linear-gradient(to left, #7b4397, #dc2430);
-     background: url(https://s-media-cache-ak0.pinimg.com/originals/6c/e4/3b/6ce43b10c21ab00b14508c9c4d1b4b75.png), linear-gradient(to left, #7b4397, #dc2430);
+     background: url(../img/bg-pattern.png), -webkit-linear-gradient(to left, #4f2a84, #e1ddec);
+     background: url(https://s-media-cache-ak0.pinimg.com/originals/6c/e4/3b/6ce43b10c21ab00b14508c9c4d1b4b75.png), linear-gradient(to left, #e1ddec, #4f2a84);
      color: #fff
  }
  
@@ -417,3 +417,5 @@ h6 {
      color: #fff;
      background: 0 0
  }
+
+ box-shadow: -5px 10px 10px #888888;
