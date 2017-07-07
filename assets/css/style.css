@@ -21,7 +21,8 @@
  }
 
  .margin-top10 {
-     margin-top: 10px;
+     margin-top: 9%;
+     margin-left:20%;
  }
 
  .margin-bottom20 {
@@ -136,3 +137,8 @@ body {
 .img-responsive {
      width:100%;
 }
+
+ .js-submit{
+    margin-top:40%;
+    margin-left:20%;
+ }

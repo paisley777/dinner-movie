@@ -167,6 +167,7 @@ h6 {
  section.download {
      padding: 150px 0;
      position: relative
+     background: url("https://image.freepik.com/free-vector/hexagonal-pattern_1051-833.jpg");
  }
  
  section.download h2 {
@@ -418,4 +419,15 @@ h6 {
      background: 0 0
  }
 
- box-shadow: -5px 10px 10px #888888;
+ .card{
+    box-shadow: -5px 10px 10px #888888;
+ }
+
+ section.download{
+    background:blue;
+ }
+
+ .js-submit{
+    margin-top:15%;
+    margin-left:20%;
+ }
