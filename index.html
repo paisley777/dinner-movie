@@ -127,10 +127,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <button id="js-submit" name="singlebutton" class="btn btn-primary center-block text-ctr margin-top10">
-                                Submit Choices
-                            </button>
                         </div>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <button id="js-submit" name="singlebutton" class="btn btn-primary center-block text-ctr margin-top10">
+                            Submit Choices
+                        </button>
                     </div>
                     <div class="col-md-2">
                         <div class="row">
@@ -153,34 +155,63 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6" id="js-restaurant-result">
-                    <div class="row">
-                        <div class="col-md-12 pad-20px" id="js-restaurant"></div>
-                    </div>
-                    <div class="row">
-                        <div class="map col-md-12 pad-20px" id="map"></div>
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div id="card" class="card">
+                            <div class="card-header">
+                                Restaurant Recommendation
+                            </div>
+                            <div class="card-block">
+                                <div class="col-md-12" id="js-restaurant-result">
+                                    <div class="row">
+                                        <div class="col-md-12 pad-20px" id="js-restaurant"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="map col-md-12 pad-20px" id="map"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6" id="js-movie-result">
-                    <div class="row">
-                        <div class="col-md-12 pad-20px" id="js-suggested-movie"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 pad-20px" id="js-movie-poster"></div>
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div id="card" class="card">
+                            <div class="card-header">
+                                Movie Recommendation
+                            </div>
+                            <div class="col-md-12" id="js-movie-result">
+                                <div class="row">
+                                    <div class="col-md-12 pad-20px" id="js-suggested-movie"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 pad-20px" id="js-movie-poster"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Footer Section -->
-    <div class="col-md-12 text-center jumbotron">
-        <footer class="footer">
-            <p>&copy; Northwestern Coding Bootcamp Team</p>
-            <div class="icons">
-                <a href="https://github.com/paisley777/dinner-movie" target="_blank"><i style="font-size:24px" class="fa">&#xf09b;</i></a>
-            </div>
-        </footer>
-    </div>
+    <nav id="footer" class="navbar navbar-toggleable-md navbar-inverse fixed-bottom col-md-12 text-center">
+        <div class="collapse navbar-collapse col-md-12 text-center">
+            <footer class="footer col-md-12 text-center">
+                <p>&copy; Northwestern Coding Bootcamp Team</p>
+                <div class="icons">
+                    <a href="https://github.com/paisley777/dinner-movie" target="_blank"><i style="font-size:16px" class="fa">&#xf09b; Team Repo</i></a>
+                </div>
+                <p>
+                    <a href="https://github.com/paisley777" target="_blank"><i style="font-size:16px" class="fa">&#xf09b; Jess</i></a> |
+                    <a href="https://github.com/sanishj" target="_blank"><i style="font-size:16px" class="fa">&#xf09b; Sanish</i></a> |
+                    <a href="https://github.com/Jamela314" target="_blank"><i style="font-size:16px" class="fa">&#xf09b; Jamela</i></a> |
+                    <a href="https://github.com/acpeterson4" target="_blank"><i style="font-size:16px" class="fa">&#xf09b; Andrew</i></a> |
+                    <a href="https://github.com/Ryangendel" target="_blank"><i style="font-size:16px" class="fa">&#xf09b; Ryan</i></a>
+                </p>
+            </footer>
+        </div>
+    </nav>
     <!-- google places api info -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPzv9MPIomb1uANZvidnBVl5NjSdFbb5g&libraries=places"></script>
     <!-- jQuery -->
